@@ -1,0 +1,24 @@
+%% preamble for Numerical-structure-analysis report
+
+\input{/Users/User/Documents/TeX/preamble/mypreamble}
+
+%% titles
+\title{航空宇宙情報システム学第三 \quad 課題レポート}
+\author{03-170360 \quad 森田涼介}
+
+
+%% setting for listings
+\newtcbinputlisting[auto counter]{\ISlisting}[3][]{%
+	listing file = {#3},
+	listing options = {language=python, style=tcblatex, numbers=left, numberstyle=\tiny},
+	listing only,
+	breakable,
+	toprule at break = 0mm,
+	bottomrule at break = 0mm,
+	left = 6mm,
+	sharp corners,
+	drop shadow,
+	title = Listing \thetcbcounter : \texttt{#2},
+	label = #1,
+	}
+

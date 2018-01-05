@@ -1,0 +1,78 @@
+\documentclass[class=jsarticle, crop=false, dvipdfmx, fleqn]{standalone}
+\input{/Users/User/Documents/TeX/preamble/mypreamble}
+\begin{document}
+\section*{練習問題3-2}
+
+\begin{itemize}
+\item 物理量：$X$
+\item 観測量$Y_1$：$Y_1 = X + W_1$
+\item 誤差量$W_1$：$E[W_1] = 0$，$V(W_1) = {\sigma_1}^2$
+\item 観測量$Y_2$：$Y_2 = X + W_2$
+\item 誤差量$W_2$：$E[W_2] = 0$，$V(W_2) = {\sigma_2}^2$
+\item $E[W_1 W_2] = 0$
+\item 推定量：$\hat{X} = aY_1 + bY_2$
+\end{itemize}
+
+\subsection*{(1)}
+\begin{equation}
+\begin{split}
+E[\hat{X} - X] & = E[\hat{X}] - E[X] \\
+	& = E[aY_1 + bY_2] - E[X] \\
+	& = E[a(X + W_1) + b(X + W_2)] - E[X] \\
+	& = E[(a + b)X] + E[W_1] + E[W_2] - E[X] \\
+	& = E[(a + b - 1)X] \\
+	& = (a + b -1) E[X]
+\end{split}
+\end{equation}
+これが0になるとき，
+$E[X] = 0$は一般に成立しないことから，
+\begin{equation}
+a + b = 1
+\end{equation}
+
+
+\subsection*{(2)}
+$a + b = 1$のとき，
+\begin{equation}
+\begin{split}
+E[(\hat{X} - X)^2] & = E[(aW_1 + bW_2)^2] \\
+	& = E[(a^2 {W_1}^2 + 2ab W_1 W_2 + {W_2}^2)] \\
+	& = a^2 E[{W_1}^2] + b^2 E[{W_2}^2] + 2ab E[W_1 W_2]
+\end{split}
+\end{equation}
+ここで，
+\begin{align}
+\mu_1 & = E[W_1] = 0 \\
+\mu_2 & = E[W_2] = 0
+\end{align}
+とおくと，
+\begin{align}
+V(W_1) & = E[(W_1 - \mu_1)^2] = E[{W_1}^2] = {\sigma_1}^2 \\
+V(W_2) & = E[(W_2 - \mu_2)^2] = E[{W_2}^2] = {\sigma_2}^2 \\
+E[W_1 W_2] & = 0
+\end{align}
+であるから，
+\begin{equation}
+E[(\hat{X} - X)^2] = a^2 {\sigma_1}^2 + b^2 {\sigma_2}^2
+\end{equation}
+となる。
+ここで，$\partial b / \partial a = -1$より，
+\begin{align}
+& \pdv{}{a} E[(\hat{X} - X)^2] = 2a {\sigma_1}^2 + 2b \cdot (-1) {\sigma_2}^2 = 2(a{\sigma_1}^2 - b{\sigma_2}^2) \\
+& \pdv{^2}{a^2} E[(\hat{X} - X)^2] = 2({\sigma_1}^2 + {\sigma_2}^2) > 0
+\end{align}
+よって，$E[(\hat{X} - X)^2]$は$a$について上に凸な関数であるから，
+これは$\partial (E[(\hat{X} - X)^2])/\partial a = 0$となる$a$で最小となる。
+\begin{align}
+& \therefore \quad a{\sigma_1}^2 = b{\sigma_2}^2 \\
+& \Leftrightarrow \quad 
+	a = \frac{{\sigma_2}^2}{{\sigma_1}^2 + {\sigma_2}^2}, \qquad
+	b = \frac{{\sigma_1}^2}{{\sigma_1}^2 + {\sigma_2}^2}
+\end{align}
+また，このとき，$E[(\hat{X} - X)^2]$は以下のようになる。
+\begin{equation}
+E[(\hat{X} - X)^2] = a^2 {\sigma_1}^2 + b^2 {\sigma_2}^2 = \frac{{\sigma_1}^2 {\sigma_2}^2}{{\sigma_1}^2 + {\sigma_2}^2}
+\end{equation}
+
+
+\end{document}

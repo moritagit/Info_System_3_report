@@ -1,0 +1,61 @@
+\documentclass[class=jsarticle, crop=false, dvipdfmx, fleqn]{standalone}
+\input{/Users/User/Documents/TeX/preamble/mypreamble}
+\begin{document}
+\section*{練習問題2-4}
+\subsection*{1.}
+\begin{comment}
+\begin{equation}
+V(a \cdot X + b) = a^2 \cdot V(X)
+\end{equation}
+を示す。
+\end{comment}
+
+$X$の平均を$\mu_X\ (= E[X])$，$u = a \cdot X + b$とおく。
+$u$の平均は，期待値の性質を用いて，
+\begin{equation}
+\begin{split}
+\mu_u & = E[u] = E[a \cdot X + b] \\
+	& = a \cdot E[X] + b \\
+	& = a \mu_X + b
+\end{split}
+\end{equation}
+よって，$V(X) = E[(X - \mu_X)^2]$であることに注意して，
+\begin{equation}
+\begin{split}
+V(a \cdot X + b) & = V(u) = E[(u - \mu_u)^2] \\
+	& = E[\qty{(aX + b) - (a \mu_X+ b)}^2] \\
+	& = E[(aX - a \mu_X)^2] \\
+	& = E[a^2 (X - \mu_X)^2] \\
+	& = a^2 E[(X - \mu_X)^2] \\
+	& = a^2 V(X)
+\end{split}
+\end{equation}
+
+
+\subsection*{2.}
+$Z = X + Y$とおく。
+$Z$の平均は，
+\begin{equation}
+\mu_Z = E[Z] = E[X + Y] = E[X] + E[Y] = \mu_X + \mu_Y
+\end{equation}
+よって，分散は，
+\begin{equation}
+\begin{split}
+V(X + Y) & = V(Z) = E[(Z - \mu_Z)^2] \\
+	& = E[\qty{(X + Y) - (\mu_X + \mu_Y)}^2]\\
+	& = E[\qty{(X - \mu_X) - (Y - \mu_Y)}^2] \\
+	& = E[(X - \mu_X)^2 + 2(X - \mu_X)(Y - \mu_Y) + (Y - \mu_Y)^2] \\
+	& = E[(X - \mu_X)] + E[(Y - \mu_Y)^2] + 2E[(X - \mu_X)(Y - \mu_Y)] \\
+	& = V(X) + V(Y) + 2Cov(X, Y)
+\end{split}
+\end{equation}
+
+
+\subsection*{3.}
+2.より，$X$と$Y$が無相関（$Cov(X, Y) = 0$）のとき，
+\begin{equation}
+V(X + Y) = V(X) + V(Y)
+\end{equation}
+
+
+\end{document}

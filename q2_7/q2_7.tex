@@ -1,0 +1,80 @@
+\documentclass[class=jsarticle, crop=false, dvipdfmx, fleqn]{standalone}
+\input{/Users/User/Documents/TeX/preamble/mypreamble}
+\begin{document}
+\section*{練習問題2-7}
+\begin{itemize}
+\item 物理量$X$：平均$\mu_X$，分散${\sigma_X}^2$
+\item 観測誤差$W$：平均$\mu_W = E[W] = 0$，分散${\sigma_W}^2 = V(W) = 1$
+\item 観測量$Y = X + W$
+\item $E[XW] = 0$
+\end{itemize}
+
+このとき，
+$X$と$W$の共分散は，
+\begin{equation}
+\begin{split}
+Cov(X, W) & = E[(X - \mu_X)(W - \mu_W)] \\
+	& = E[XW] - \mu_X \mu_W \\
+	& = 0
+\end{split}
+\end{equation}
+$Y$の平均・分散は，
+\begin{equation}
+\begin{split}
+\mu_Y & = E[Y] = E[X + W] \\
+	& = E[X] + E[W] \\
+	& = \mu_X + \mu_W \\
+	& = \mu_X \\
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+{\sigma_Y}^2 & = V(Y) = V(X + W) \\
+	& = V(X) + V(W) + Cov(X, W) \\
+	& = {\sigma_X}^2 + {\sigma_W}^2 + 0 \\
+	& = {\sigma_X}^2 + 1
+\end{split}
+\end{equation}
+となる。
+ここで，$V(X + Y)$は，
+\begin{equation}
+V(X + Y) = V (2X + W) = V(2X) + V(W) + Cov(2X, W)
+\end{equation}
+と表されるが，
+\begin{align}
+& V(2X) = 2^2 V(X) = 4 {\sigma_X}^2 \\
+& V(W) = 1 \notag
+\end{align}
+であり，
+また，$2X$の平均は$E[2X] = 2E[X] = 2\mu_X$であるから，
+\begin{equation}
+\begin{split}
+Cov(2X, W) & = E[(2X - 2\mu_X)(W - \mu_W)] \\
+	& = 2E[(X - \mu_X)(W - \mu_W)] \\
+	& = 2 Cov(X, W) \\
+	& = 0
+\end{split}
+\end{equation}
+となる。
+よって，
+\begin{equation}
+\begin{split}
+V(X + Y) & = V(2X) + V(W) + Cov(2X, W) \\
+	& = 4{\sigma_X}^2 + 1
+\end{split}
+\end{equation}
+一方，$V(X + Y)$は以下のようにも表される。
+\begin{equation}
+V(X + Y) = V(X) + V(Y) + Cov(X, Y)
+\end{equation}
+よって，
+\begin{equation}
+\begin{split}
+Cov(X, Y) & = V(X + Y) - (V(X) + V(Y)) \\
+	& = (4{\sigma_X}^2 + 1) - ({\sigma_X}^2 + {\sigma_X}^2 + 1) \\
+	& = 2{\sigma_X}^2
+\end{split}
+\end{equation}
+
+
+\end{document}

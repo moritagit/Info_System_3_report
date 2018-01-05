@@ -1,0 +1,29 @@
+\documentclass[class=jsarticle, crop=false, dvipdfmx, fleqn]{standalone}
+\input{/Users/User/Documents/TeX/preamble/mypreamble}
+\begin{document}
+\section{練習問題3-8}
+連続変数$X$が正規分布$N(\mu, \sigma^2)$に従うとき，
+$X$の確率分布は以下の式で表される。
+\begin{equation}
+p(X) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\qty(- \frac{(X - \mu)^2}{2 \sigma^2})
+\end{equation}
+よって，
+\begin{equation}
+\begin{split}
+H(X) & = E[-\log p(X)] \\
+	& = E\qty[- \log\qty{\frac{1}{\sqrt{2 \pi \sigma^2}} \exp\qty(- \frac{(X - \mu)^2}{2 \sigma^2})}] \\
+	& = E\qty[\frac{1}{2} \log(2 \pi \sigma^2) + \frac{1}{2 \sigma^2} (X - \mu)^2] \\
+	& = \frac{1}{2} \log(2 \pi \sigma^2) + \frac{1}{2 \sigma^2} E[(X - \mu)^2]
+\end{split}
+\end{equation}
+ここで，$E[(X - \mu)^2] = V(X) = \sigma^2$より，
+\begin{equation}
+\begin{split}
+H(X) & = \frac{1}{2} \log(2 \pi \sigma^2) + \frac{1}{2 \sigma^2} \cdot \sigma^2 \\
+	& = \frac{1}{2} \qty(\log(2 \pi \sigma^2) + 1) \\
+	& = \frac{1}{2} \log(2 \pi e \sigma^2)
+\end{split}
+\end{equation}
+
+
+\end{document}
